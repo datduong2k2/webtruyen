@@ -1,3 +1,102 @@
+<!-- GET DATA FROM JSON-->
+<!--
+<template>
+  <div class="new-books-block">
+
+    <div class="header">
+      <h2>TRUYỆN MỚI CẬP NHẬT</h2>
+      <p class="text">XEM THÊM &gt;</p>
+    </div>
+    <hr class="horizontal-line" />
+    <div class="options">
+      <div
+        v-for="(option, index) in options"
+        :key="index"
+        :class="{ selected: selectedOption === option }"
+        @click="selectOption(option)"
+      >
+        {{ option }}
+      </div>
+    </div>
+
+    <div class="books">
+      <div v-if="selectedOption === 'Convert'" class="book-container">
+        <div
+          v-for="(book, index) in filteredBooks('convert')"
+          :key="index"
+          class="book"
+        >
+          <img :src="book.cover" alt="Book Cover" />
+          <p>{{ book.title }}</p>
+        </div>
+      </div>
+      <div v-if="selectedOption === 'Dịch'" class="book-container">
+        <div
+          v-for="(book, index) in filteredBooks('translate')"
+          :key="index"
+          class="book"
+        >
+          <img :src="book.cover" alt="Book Cover" />
+          <p>{{ book.title }}</p>
+        </div>
+      </div>
+      <div v-if="selectedOption === 'Ngôn tình'" class="book-container">
+        <div
+          v-for="(book, index) in filteredBooks('ngontinh')"
+          :key="index"
+          class="book"
+        >
+          <img :src="book.cover" alt="Book Cover" />
+          <p>{{ book.title }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from "axios"; // Import axios for making HTTP requests
+
+export default {
+  name: "NewBooksBlock",
+  data() {
+    return {
+      selectedOption: "", // Lựa chọn hiện tại của người dùng
+      options: ["Convert", "Dịch", "Ngôn tình"], // Các lựa chọn
+      cardsData: [], // Dữ liệu sách từ file JSON
+    };
+  },
+  methods: {
+    // Hàm lấy dữ liệu từ file JSON
+    async fetchData() {
+      try {
+        const response = await axios.get("/z_data/cardlist01.json"); // Thay đổi đường dẫn tới file JSON
+        this.cardsData = response.data.cards;
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    },
+    // Lọc và trả về danh sách sách theo type_transl và id lớn nhất
+    filteredBooks(type) {
+      // Lọc sách theo type_transl và sắp xếp theo id giảm dần, lấy 4 cuốn đầu tiên
+      return this.cardsData
+        .filter((book) => book.type_transl === type)
+        .sort((a, b) => b.id - a.id)
+        .slice(0, 4); // Lấy 4 cuốn sách đầu tiên
+    },
+    // Xử lý sự kiện khi người dùng chọn một lựa chọn
+    selectOption(option) {
+      this.selectedOption = option;
+    },
+  },
+  mounted() {
+    // Khi component được mount, gọi fetchData để tải dữ liệu từ JSON
+    this.fetchData();
+  },
+};
+</script>
+-->
+
 <template>
   <div class="new-books-block">
     <!-- Header -->
@@ -71,7 +170,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .new-books-block {
   font-weight: bold;
@@ -97,6 +195,7 @@ export default {
 }
 
 .options {
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 10px;

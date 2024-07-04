@@ -1,7 +1,7 @@
 <template>
   <div class="right-aside">
     <div class="header">
-      <h2>TRUYỆN MỚI CẬP NHẬT</h2>
+      <h2>TRUYỆN ĐỀ XUẤT</h2>
       <p class="text">XEM THÊM &gt;</p>
     </div>
     <hr class="horizontal-line" />

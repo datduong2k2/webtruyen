@@ -8,15 +8,14 @@
 
     <!-- Repeat this block for each mobile-box item -->
     <div v-for="item in items" :key="item.id" class="mobile-box">
-      <img :src="item.imageUrl" :alt="item.alt" />
+      <img :src="item.cover" :alt="item.title" />
       <div class="box-description">
         <p>
-          {{ item.title }} <br />
-          Thể loại: {{ item.genre }} <br />
-          Tác giả: {{ item.author }} <br />
-          Lượt xem: {{ item.views }} <br />
-          Tình trạng: {{ item.status }} <br />
-          Số chương: {{ item.chapters }}
+          <strong>{{ item.title }}</strong> <br />
+          <span v-if="item.desc_short">{{ item.desc_short }}</span> <br />
+          <span>Tác giả: {{ item.author }}</span> <br />
+          <span>Chương hiện tại: {{ item.chapter }}</span> /
+          <span>Tổng số chương: {{ item.chapter_all }}</span>
         </p>
       </div>
     </div>
@@ -24,36 +23,12 @@
 </template>
 
 <script>
+import cardlist01 from "@/z_data/cardlist01.json"; // Adjust the path based on your project structure
+
 export default {
   data() {
     return {
-      items: [
-        {
-          id: 1,
-          imageUrl:
-            "https://www.nae.vn/ttv/ttv/public/images/story/0ab9fbe917d20cac55123ea2a3267ed3c3d8ad4921f25612adcd782c1826ca73.jpg",
-          alt: "Image 1",
-          title: "Luân hồi lạc viên",
-          genre: "Đồng nhân",
-          author: "Na nhất chích vân tử",
-          views: "847948489",
-          status: "chưa hoàn thành",
-          chapters: "899",
-        },
-        {
-          id: 2,
-          imageUrl:
-            "https://www.nae.vn/ttv/ttv/public/images/story/0ab9fbe917d20cac55123ea2a3267ed3c3d8ad4921f25612adcd782c1826ca73.jpg",
-          alt: "Image 1",
-          title: "Luân hồi lạc viên",
-          genre: "Đồng nhân",
-          author: "Na nhất chích vân tử",
-          views: "847948489",
-          status: "chưa hoàn thành",
-          chapters: "899",
-        },
-        // Add more items as needed
-      ],
+      items: cardlist01.cards.slice(0, 5), // Lấy 5 cuốn sách đầu tiên từ JSON
     };
   },
 };
@@ -105,16 +80,18 @@ export default {
 }
 
 .mobile-box {
-  height: 100px;
+  height: 120px;
   display: flex;
   align-items: center;
   padding: 10px;
   background-color: #ffffff;
+  border-bottom: 1px solid #ccc;
 }
 
 .mobile-box img {
-  width: 70px;
-  aspect-ratio: 0.7;
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 5px;
   margin-right: 10px;
 }
