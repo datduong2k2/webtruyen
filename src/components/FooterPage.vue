@@ -1,5 +1,6 @@
 <template>
   <footer class="footerPage">
+    <hr class="horizontal-line" />
     <p>
       <span>© 2007 Tàng Thư Viện - Chính sách</span><br />
       Tàng Thư Viện là sân chơi mở và free cho cộng đồng fan kiếm hiệp, tiên
@@ -32,5 +33,9 @@ export default {
 }
 .footer span {
   font-weight: bold;
+}
+.horizontal-line {
+  border: none;
+  border-top: 1px solid #ccc;
 }
 </style>

@@ -2,7 +2,8 @@
   <div>
     <header-page />
     <slide-show />
-    <navba-page />
+    <search-bar-mobile />
+    <navbar-mobile />
     <img
       src="https://truyen.tangthuvien.vn/images/banner-app-ttv.jpg"
       alt="tải app"
@@ -10,26 +11,41 @@
     />
     <new-update />
     <top-view />
-    <footer-page />
+    <recommant-book />
+    <completed-book />
+    <footer-page></footer-page>
+    <!--<navba-page />
+   
+    <top-view />
+    <footer-page /-->
   </div>
 </template>
 
 <script>
 import HeaderPage from "./components/HeaderPage.vue";
-import NavbaPage from "./components/NavbaPage.vue";
+import SearchBarMobile from "./components/SearchBarMobile.vue";
+import NavbarMobile from "./components/NavbarMobile.vue";
+// import NavbaPage from "./components/NavbaPage.vue";
 import SlideShow from "./components/SlideShow.vue";
 import NewUpdate from "./components/NewUpdate.vue";
 import FooterPage from "./components/FooterPage.vue";
 import TopView from "./components/TopView.vue";
+import RecommantBook from "./components/RecommentBook.vue";
+import CompletedBook from "./components/CompletedBook.vue";
+
 export default {
   name: "App",
   components: {
     HeaderPage,
-    NavbaPage,
+    //NavbaPage,
     SlideShow,
+    SearchBarMobile,
+    NavbarMobile,
     NewUpdate,
     FooterPage,
     TopView,
+    RecommantBook,
+    CompletedBook,
   },
 };
 </script>

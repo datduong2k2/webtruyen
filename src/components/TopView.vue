@@ -1,5 +1,5 @@
 <template>
-  <div class="new-books-block">
+  <div class="top-view-block">
     <!-- Header -->
     <div class="header">
       <h2>TRUYỆN XEM NHIỀU</h2>
@@ -49,21 +49,14 @@ export default {
       ],
     };
   },
-  methods: {
-    selectOption(option) {
-      this.selectedOption = option;
-    },
-  },
 };
 </script>
 
 <style scoped>
-.new-books-block {
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.top-view-block {
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #ffffff;
 }
 
 .header {
@@ -83,52 +76,33 @@ export default {
   font-size: 14px;
 }
 
-.options {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.options div {
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.options div.selected {
-  background-color: red;
-  color: white;
-}
-
 .books {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .book-container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .book {
-  width: calc(
-    25% - 20px
-  ); /* 25% để mỗi ô chiếm 25% chiều rộng của khối cha, trừ đi margin */
-  margin-bottom: 20px; /* Khoảng cách dưới mỗi ô */
-  background-color: white;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 5px);
+  /* Để lại khoảng cách 5px giữa các ô */
+  margin-bottom: 10px;
   text-align: center;
+  color: black;
+  cursor: none;
+  text-decoration: none;
+  margin-left: 5px;
 }
 
 .book img {
-  width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng của ô */
-  border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 0.8;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
 .book p {
@@ -138,5 +112,6 @@ export default {
 .horizontal-line {
   border: none;
   border-top: 1px solid #ccc;
+  margin-top: 0;
 }
 </style>

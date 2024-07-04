@@ -1,73 +1,117 @@
 <template>
-  <header class="site-header">
+  <div class="header">
     <div class="logo">
-      <img src="../assets/logo.png" alt="Logo" />
-      <p>{{ nameWeb }}</p>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnRyNjTC0YyGo6zBrXw9m7FABlPEjhM14NiQ&s"
+        alt="logo"
+      />
     </div>
-    <!-- Sử dụng router-link để điều hướng đến trang Login -->
-    <router-link to="./LoginPage.vue">
-      <button>Login</button>
-    </router-link>
-  </header>
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." />
+    </div>
+    <div class="account">Account</div>
+    <div class="account2">
+      <img
+        src="https://banner2.cleanpng.com/20180516/zq/kisspng-computer-icons-google-account-icon-design-login-5afc02dab4a218.0950785215264652427399.jpg"
+        alt="login"
+      />
+    </div>
+  </div>
 </template>
+
 <script>
 export default {
   name: "HeaderPage",
-  data() {
-    return {
-      nameWeb: "Truyện",
-    };
-  },
 };
 </script>
 
 <style scoped>
-/* CSS cho header */
-.site-header {
+/* CSS for header styles */
+.header {
+  margin-top: 20px;
+  grid-area: header;
   background-color: #ffffff;
-  color: #000000; /* Màu chữ là đen cho tương phản tốt hơn */
-  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap; /* Cho phép các phần tử chuyển dòng khi cần thiết */
 }
 
 .logo {
-  display: flex;
-  align-items: center;
+  justify-content: flex-start;
 }
 
-.logo img {
-  height: 40px; /* Điều chỉnh chiều cao của logo */
-  margin-right: 10px; /* Khoảng cách giữa logo và văn bản */
+.header .logo img {
+  height: 60px;
+  width: auto;
 }
 
-/* Button "Tài khoản" */
-.site-header button {
-  background-color: rgb(40, 172, 28);
-  color: rgb(255, 255, 255);
-  padding: 5px;
-  border-block-color: rgb(46, 38, 38);
+.search-bar {
+  flex: 2;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 300px;
+  height: 25px;
+  padding: 8px;
+  font-size: 18px;
   border-radius: 10px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: 1px solid #ccc;
 }
 
-@media (max-width: 768px) {
-  .site-header {
-    flex-direction: row;
-    text-align: center;
+.account {
+  text-align: right;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.account::after {
+  margin-left: 10px;
+}
+
+@media (min-width: 678px) {
+  .account2 {
+    display: none;
+  }
+}
+@media (max-width: 678px) {
+  .header .search-bar {
+    display: none;
+  }
+  .account {
+    display: none;
   }
 
-  .logo {
-    margin-bottom: 10px;
+  .account2 {
+    display: flex;
+    /* Display account as flex container */
+    justify-content: flex-end;
+    /* Push content to the right */
+    align-items: center;
+    /* Center align items vertically */
+    flex: 1;
+    /* Occupy remaining space */
+  }
+  .account2 img {
+    display: flex;
+    justify-content: flex-end;
+    height: 20px;
+    width: 20px;
+  }
+  .account2 img {
+    display: flex;
+    justify-content: flex-end;
+    /* Push content to the right */
+    height: 30px;
+    width: 30px;
   }
 
-  .search-form {
-    margin-bottom: 10px;
-    width: 20;
+  .header .logo img {
+    height: 30px;
+    width: auto;
   }
 }
 </style>
